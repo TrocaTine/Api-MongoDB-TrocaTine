@@ -17,7 +17,7 @@ public class QuestionsController {
 
     private QuestionsService questionsService;
 
-    @GetMapping("/find-questions")
+    @PostMapping("/find-questions")
     public StandardResponseDTO findQuestions(@RequestBody @Valid FindQuestionsByProductRequestDTO requestDTO){
         FindQuestionsByProductResponseDTO result = questionsService.findQuestionsByProductResponse(requestDTO);
         return new StandardResponseDTO(false, result);

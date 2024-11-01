@@ -17,7 +17,7 @@ public class ReviewsController {
 
     private ReviewService reviewService;
 
-    @GetMapping("/find-reviews")
+    @PostMapping("/find-reviews")
     public StandardResponseDTO findReviews(@Valid @RequestBody FindReviewsProductRequesDTO request){
         FindReviewProductResponseDTO response = reviewService.findReviewProduct(request);
         return new StandardResponseDTO(false, response);
