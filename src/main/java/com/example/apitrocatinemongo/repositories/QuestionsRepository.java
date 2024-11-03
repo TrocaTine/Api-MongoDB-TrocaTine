@@ -17,7 +17,7 @@ public interface QuestionsRepository extends MongoRepository<Questions, String> 
             "{ '$group': { " +
                     "'_id': '$_id', " +
                     "'id_product': { '$first': '$id_product' }, " +
-                    "'id_user': { '$first': '$id_user' }, " +
+                    "'email_user': { '$first': '$email_user' }, " +
                     "'message': { '$first': '$message' }, " +
                     "'answers': { '$push': '$answers' } " +
                     "} }"

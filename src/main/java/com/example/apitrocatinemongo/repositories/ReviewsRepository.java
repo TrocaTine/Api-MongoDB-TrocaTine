@@ -11,7 +11,7 @@ public interface ReviewsRepository extends MongoRepository<Reviews, String> {
             "{ '$match': { 'idProduct': ?0 } }",
             "{ '$group': { '_id': '$idProduct', " +
                     "'averageStar': { '$avg': '$star' }, " +
-                    "'evaluations': { '$push': { 'user': '$idUser', 'star': '$star', 'content': '$content', 'date': '$data' } } } }",
+                    "'evaluations': { '$push': { 'user': '$email_user', 'star': '$star', 'content': '$content', 'date': '$data' } } } }",
             "{ '$project': { '_id': 0, 'productId': '$_id', 'averageStar': 1, 'evaluations': 1 } }"
     })
     FindReviewProductResponseDTO findProductReviews(Long idProduct);
