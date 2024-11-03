@@ -59,7 +59,7 @@ public class QuestionsService {
         if(checkProductExist){
             Questions question = new Questions();
             question.setIdProduct(request.idProduct());
-            question.setIdUser(idUser);
+            question.setEmailUser(request.email());
             question.setMessage(request.message());
             question.setAnswers(new ArrayList<Answers>());
             questionsRepository.save(question);
