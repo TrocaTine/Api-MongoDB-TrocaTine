@@ -65,7 +65,7 @@ public class ReviewService {
         if(checkProductExist){
             Reviews reviews = new Reviews();
             reviews.setIdProduct(request.idProduct());
-            reviews.setIdUser(idUser);
+            reviews.setEmailUser(request.email());
             reviews.setContent(request.message());
             reviews.setStar(reviews.getStar());
             reviews.setData(LocalDate.now());

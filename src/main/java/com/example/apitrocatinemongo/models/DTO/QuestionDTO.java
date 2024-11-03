@@ -14,7 +14,7 @@ public class QuestionDTO {
 
     private String id;
     private String id_product;
-    private String id_user;
+    private String email_user;
     private String message;
     private List<AnswerDTO> answers;
 }
