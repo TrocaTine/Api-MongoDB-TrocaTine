@@ -22,19 +22,18 @@ import java.time.LocalDate;
 @Document(collection = "reviews")
 @Schema(description = "Document representing a product review")
 public class Reviews {
-
     @Id
-    @NotNull(message = "ID can not be null.")
+    @NotNull(message = "ID cannot be null.")
     @Schema(description = "Unique identifier")
     private ObjectId id;
 
-    @NotNull(message = "Product ID can not be null.")
-    @Schema(description = "Id Product", example = "1234")
+    @NotNull(message = "Product ID cannot be null.")
+    @Schema(description = "ID of the product", example = "1234")
     private Long idProduct;
 
-    @NotNull(message = "User email can not be null.")
-    @Schema(description = "Email User", example = "5001")
-    @Field(name="email_user")
+    @NotNull(message = "User email cannot be null.")
+    @Schema(description = "User email", example = "user@example.com")
+    @Field(name = "email_user")
     private String emailUser;
 
     @NotNull(message = "Star rating cannot be null.")
@@ -43,13 +42,12 @@ public class Reviews {
     @Schema(description = "Star rating given by the user, from 0 to 5", example = "4")
     private int star;
 
-    @NotNull(message = "Content can not be null.")
-    @Schema(description = "Content about review", example = "Great product, highly recommend!")
+    @NotNull(message = "Content cannot be null.")
+    @Schema(description = "Content of the review", example = "Great product, highly recommend!")
     private String content;
 
-    @NotNull(message = "Date can not be null.")
+    @NotNull(message = "Date cannot be null.")
     @Schema(description = "Date when the review was posted", example = "2024-10-10")
     private LocalDate data;
-
 
 }
