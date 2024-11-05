@@ -11,6 +11,7 @@ import lombok.Setter;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.List;
 
 @Getter
@@ -18,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "questions")
-@Schema(description = "Document representing a question about product")
+@Schema(description = "Document representing a question about a product")
 public class Questions {
 
     @Id
@@ -26,23 +27,22 @@ public class Questions {
     @Schema(description = "Unique identifier")
     private ObjectId id;
 
-    @NotNull(message = "Product ID can not be null.")
+    @NotNull(message = "Product ID cannot be null.")
     @Field(name = "id_product")
-    @Schema(description = "Id Product, example", example = "1234")
+    @Schema(description = "ID of the product", example = "1234")
     private Long idProduct;
 
-    @NotNull(message = "User email can not be null.")
+    @NotNull(message = "User email cannot be null.")
     @Field(name = "email_user")
-    @Schema(description = "Email User", example = "1234")
+    @Schema(description = "User email", example = "user@example.com")
     private String emailUser;
 
-    @NotNull(message = "Message can not be null.")
+    @NotNull(message = "Message cannot be null.")
+    @Size(min = 2, message = "Message must have at least 2 characters.")
     @Schema(description = "User question", example = "What is the warranty period for this product?")
     private String message;
 
     @Field(name = "answers")
     @Schema(description = "List of answers")
     private List<Answers> answers;
-
-
 }
